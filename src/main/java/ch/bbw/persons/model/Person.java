@@ -35,9 +35,9 @@ public class Person {
     @Temporal(TemporalType.DATE)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date geburtsdatum;
+    private Date birthdate;
 
     @NotNull
     @Size(min=1, max=1)
-    private String geschlecht;
+    private String gender;
 }
