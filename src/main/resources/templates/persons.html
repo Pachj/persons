@@ -13,14 +13,28 @@
 </head>
 <body>
 <div class="container">
+    <h1>Personen</h1>
     <div class="row">
         <div class="col-12">
-            <br/>
-            <h1>Articles Overview</h1>
-
-            <div th:each="person : ${persons}">
-                <h2 th:text="${person.id}"></h2>
-                <p th:text="${person.firstname}"></p>
+            <div>
+                <table class="table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Vorname</th>
+                            <th scope="col">Nachname</th>
+                            <th scope="col">E-Mail</th>
+                            <th scope="col">Geburtsdatum</th>
+                            <th scope="col">Geschlecht</th>
+                        </tr>
+                    </thead>
+                    <tr scope="row" th:each="person : ${persons}">
+                        <td th:text="${person.firstname}"></td>
+                        <td th:text="${person.lastname}"></td>
+                        <td th:text="${person.email}"></td>
+                        <td th:text="${person.geburtsdatum}"></td>
+                        <td th:text="${person.geschlecht}"></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
