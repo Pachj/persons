@@ -6,36 +6,33 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Personenverwaltung" />
-    <meta name="author" content="BBW RL" />
+    <meta name="author" content="Henry Joerg" />
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" th:href="@{/bootstrap-4.1.3/css/bootstrap.min.css}"/>
 </head>
 <body>
 <div class="container">
-    <h1>Personen</h1>
+    <h1 class="text-center" style="margin-top: 1rem; margin-bottom: 1rem;">Personen</h1>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4" th:each="person : ${persons}">
+            <div class="card">
+                <a style="color: inherit;text-decoration: inherit;" th:href="@{/editPerson/{id}(id = ${person.id})}">
+                    <div class="card-body">
+                        <h3 class="text-center" style="text-wrap: normal" th:text="${person.firstname + ' ' + person.lastname}"></h3>
+                        <div class="card card-body text-center">
+                            <p th:text="${person.email}"></p>
+                            <p th:text="${person.birthdate}"></p>
+                            <p style="margin-bottom: 0;" th:text="${person.gender}"></p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12">
-            <div>
-                <table class="table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">Vorname</th>
-                            <th scope="col">Nachname</th>
-                            <th scope="col">E-Mail</th>
-                            <th scope="col">Geburtsdatum</th>
-                            <th scope="col">Geschlecht</th>
-                        </tr>
-                    </thead>
-                    <tr scope="row" th:each="person : ${persons}">
-                        <td th:text="${person.firstname}"></td>
-                        <td th:text="${person.lastname}"></td>
-                        <td th:text="${person.email}"></td>
-                        <td th:text="${person.birthdate}"></td>
-                        <td th:text="${person.gender}"></td>
-                    </tr>
-                </table>
-            </div>
+            <a class="text-center btn btn-primary float-right" href="/editPerson">Neue Person erstellen</a>
         </div>
     </div>
 </div>
