@@ -37,5 +37,6 @@ public class Person {
 
     @NotNull
     @Size(min=1, max=1)
+    @Pattern(regexp="[MmfF]")
     private String gender;
 }
