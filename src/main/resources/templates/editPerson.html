@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Personenverwaltung</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Personenverwaltung" />
+    <meta name="author" content="Henry Joerg" />
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/bootstrap-4.1.3/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1 style="margin-top: 1rem; margin-bottom: 1rem;" class="text-center">Person Editieren</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+            <form th:action="@{/editPerson}" th:object="${person}" method="post">
+                <input type="hidden" th:field="*{id}">
+                <div class="form-group">
+                    <label for="firstname">Vorname</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Vorname"
+                           th:field="*{firstname}">
+                    <p th:if= "${#fields.hasErrors('firstname')}" th:errors= "*{firstname}" >Firstname Error</p>
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Nachname</label>
+                    <input type="text" class="form-control" id="lastname" placeholder="Nachname"
+                           th:field="*{lastname}">
+                    <p th:if= "${#fields.hasErrors('lastname')}" th:errors= "*{lastname}" >Lastname Error</p>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Adresse</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email Adresse"
+                           th:field="*{email}">
+                    <p th:if= "${#fields.hasErrors('email')}" th:errors= "*{email}" >Email Error</p>
+                </div>
+                <div class="form-group">
+                    <label for="birthdate">Geburtsdatum</label>
+                    <input type="date" class="form-control" id="birthdate" placeholder="Geburtsdatum"
+                           th:field="*{birthdate}">
+                    <p th:if= "${#fields.hasErrors('birthdate')}" th:errors= "*{birthdate}" >Birthdate Error</p>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Geschlecht</label>
+                    <select class="form-control" id="gender" th:field="*{gender}">
+                        <option th:value="'M'">Männlich</option>
+                        <option th:value="'F'">Weiblich</option>
+                    </select>
+                </div>
+                <button type="reset" onclick="location.href='/persons';" class="btn btn-warning">Cancel
+                </button>
+                <button type="button" th:class="${id} ? 'btn btn-danger' : 'disabled'"
+                        data-toggle="modal" data-target="#modal">Delete
+                </button>
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
+            </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalLabel">Person löschen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Möchten Sie diese Person wirklich löschen?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <form th:action="@{'/editPerson/' + ${id} + '/delete'}" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script th:src="@{/bootstrap-4.1.3/js/bootstrap.min.js}"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+</body>
+</html>
