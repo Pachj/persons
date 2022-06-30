@@ -5,10 +5,7 @@ import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -35,6 +32,7 @@ public class Person {
     @Temporal(TemporalType.DATE)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Past
     private Date birthdate;
 
     @NotNull
