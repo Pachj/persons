@@ -51,12 +51,12 @@
                         <option th:value="'F'">Weiblich</option>
                     </select>
                 </div>
-                <button type="reset" onclick="location.href='/persons';" class="btn btn-warning">Cancel
+                <button type="reset" onclick="location.href='/persons';" class="btn btn-warning">Abbrechen
                 </button>
                 <button type="button" th:class="${id} ? 'btn btn-danger' : 'disabled'"
-                        data-toggle="modal" data-target="#modal">Delete
+                        data-toggle="modal" data-target="#modal">Löschen
                 </button>
-                <button type="submit" class="btn btn-primary float-right">Submit</button>
+                <button type="submit" class="btn btn-primary float-right">Absenden</button>
             </form>
                 </div>
             </div>
@@ -77,9 +77,9 @@
                 Möchten Sie diese Person wirklich löschen?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
                 <form th:action="@{'/editPerson/' + ${id} + '/delete'}" method="POST">
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">Löschen</button>
                 </form>
             </div>
         </div>
