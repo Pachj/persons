@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysqldb
--- Generation Time: Jul 04, 2022 at 09:17 AM
+-- Generation Time: Jul 04, 2022 at 12:21 PM
 -- Server version: 10.8.3-MariaDB-1:10.8.3+maria~jammy
 -- PHP Version: 8.0.19
 
@@ -36,7 +36,7 @@ CREATE TABLE `hibernate_sequence` (
 --
 
 INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(6);
+(9);
 
 -- --------------------------------------------------------
 
@@ -52,17 +52,6 @@ CREATE TABLE `person` (
   `birthdate` date NOT NULL,
   `gender` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `person`
---
-
-INSERT INTO `person` (`id`, `firstname`, `lastname`, `email`, `birthdate`, `gender`) VALUES
-(5, 'Henry', 'Jörg', 'sdf@sdf.ch', '1997-02-04', 'M'),
-(6, 'Chantal', 'Inauen', 'sdf@sdf.ch', '1997-02-04', 'M'),
-(7, 'Valentin', 'Marolf', 'sdf@sdf.ch', '1997-02-04', 'M'),
-(8, 'sdf', 'sdf', 'sdf@sdf.ch', '1997-02-04', 'M'),
-(9, 'sdf', 'sdf', 'sdf@sdf.ch', '1997-02-04', 'M');
 
 --
 -- Indexes for dumped tables
