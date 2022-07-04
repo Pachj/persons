@@ -1,5 +1,6 @@
 package ch.bbw.persons.model;
 
+import ch.bbw.persons.BirthdateConstraint;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -32,7 +33,7 @@ public class Person {
     @Temporal(TemporalType.DATE)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Past(message = "Das Geburtsdatum muss in der Vergangenheit liegen.")
+    @BirthdateConstraint(message = "Ungültiges Geburtsdatum. Datum muss vor dem Jahr 2005 liegen.")
     private Date birthdate;
 
     @NotNull
