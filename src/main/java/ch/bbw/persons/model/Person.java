@@ -18,25 +18,25 @@ public class Person {
     private long id;
 
     @NotNull
-    @Size(min=2, max=30)
+    @Size(min=2, max=30, message="Der Vorname muss zwischen 2 und 30 Zeichen lang sein.")
     private String firstname;
 
     @NotNull
-    @Size(min=2, max=30)
+    @Size(min=2, max=30, message="Der Nachname muss zwischen 2 und 30 Zeichen lang sein.")
     private String lastname;
 
     @NotNull
-    @Email
+    @Email(message = "Es muss eine gültige Email Adresse sein.")
     private String email;
 
     @Temporal(TemporalType.DATE)
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Past
+    @Past(message = "Das Geburtsdatum muss in der Vergangenheit liegen.")
     private Date birthdate;
 
     @NotNull
-    @Size(min=1, max=1)
+    @Size(min=1, max=1, message = "Es muss ein Geschlecht gewählt werden.")
     @Pattern(regexp="[MmfF]")
     private String gender;
 }
